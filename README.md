@@ -1,7 +1,7 @@
 
 # webpack-static-i18n-plugin
 
-A webpack plugin implementing [node-static-i18n](https://github.com/claudetech/node-static-i18n) for generating internationalized HTML files.  
+A webpack plugin implementing [node-static-i18n](https://github.com/claudetech/node-static-i18n) for generating internationalized HTML files.
 
 Based on [webpack-static-i18n-html](https://github.com/Opetushallitus/webpack-static-i18n-html).
 

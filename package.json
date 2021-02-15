@@ -1,14 +1,11 @@
 {
-  "name": "webpack-static-i18n-html",
-  "version": "0.1.0",
-  "description": "A webpack plugin for generating internationalized HTML files.",
+  "name": "webpack-static-i18n-plugin",
+  "version": "1.0.0-alpha",
+  "description": "A webpack plugin implementing node-static-i18n for generating internationalized HTML files.",
   "main": "index.js",
-  "scripts": {
-    "test": "jest"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kalifi/webpack-static-i18n-html.git"
+    "url": "git+https://github.com/BenceSzalai/webpack-static-i18n-plugin"
   },
   "keywords": [
     "webpack",
@@ -16,9 +13,16 @@
     "i18n",
     "HTML"
   ],
-  "author": "Wille Keltikangas",
+  "author": {
+    "name": "Bence Szalai",
+    "email": "bence@sbnc.eu",
+    "url": "https://sbnc.eu/"
+  },
   "license": "MIT",
-  "homepage": "https://github.com/Kalifi/webpack-static-i18n-html#readme",
+  "bugs": {
+    "url": "https://github.com/BenceSzalai/webpack-static-i18n-plugin/issues"
+  },
+  "homepage": "https://github.com/BenceSzalai/webpack-static-i18n-plugin#readme",
   "dependencies": {
     "static-i18n": "^0.2.10"
   },
@@ -32,5 +36,8 @@
     "jest": "^26.6.3",
     "webpack": "^4.46.0",
     "webpack-cli": "^4.5.0"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }
