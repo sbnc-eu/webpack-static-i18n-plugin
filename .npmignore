@@ -34,9 +34,10 @@ Temporary Items
 ### Vendor
 node_modules
 
-### Generated
-test/dist/
+### Tests
+test
 
 ### Other
 .wakatime-project
 *.iml
+.editorconfig
