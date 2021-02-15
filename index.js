@@ -11,13 +11,13 @@ class StaticI18nHtmlPlugin {
   }
 
   apply(compiler) {
-    compiler.hooks.emit.tapAsync('StaticI18nHtmlPlugin', async (compilation, callback, stats) => {
+    compiler.hooks.emit.tapAsync('WebpackStaticI18NPlugin', async (compilation, callback, stats) => {
 
       let globPattern = this.options.files;
 
       let assetsToTranslate = minimatch.match(Object.keys(compilation.assets), globPattern)
 
-      for (var i in assetsToTranslate ) {
+      for (let i in assetsToTranslate ) {
         let filename = assetsToTranslate[i];
         let translatedSources = await staticI18n.process( compilation.assets[filename].source(), this.options );
 

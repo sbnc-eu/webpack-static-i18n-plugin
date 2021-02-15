@@ -1,6 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
-import StaticI18nHtmlPlugin from '../index';
+import WebpackStaticI18NPlugin from '../index';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
@@ -19,7 +19,7 @@ export default function runWebPackCompiler(...pluginOpts) {
         filename: 'index.html',
         template: path.resolve(__dirname, 'templates/index.html'),
       }),
-      new StaticI18nHtmlPlugin(...pluginOpts),
+      new WebpackStaticI18NPlugin(...pluginOpts),
     ],
   });
 
