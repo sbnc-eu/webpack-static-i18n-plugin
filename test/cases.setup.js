@@ -1,6 +1,7 @@
-import { basename, dirname, join } from 'path';
+import { basename, dirname, join, resolve } from 'path';
 import webpack from 'webpack';
 import StaticI18nHtmlPlugin from '../index';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default function processTemplates(...pluginOpts) {
   const compiler = webpack({
@@ -10,6 +11,10 @@ export default function processTemplates(...pluginOpts) {
       filename: 'bundle.js'
     },
     plugins: [
+      new HtmlWebpackPlugin({
+        filename: 'html/index.html',
+        template: resolve(__dirname, 'templates/index.html'),
+      }),
       new StaticI18nHtmlPlugin(...pluginOpts),
     ],
   });
