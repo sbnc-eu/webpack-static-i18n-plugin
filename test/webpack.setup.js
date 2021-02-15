@@ -1,19 +1,23 @@
-import { basename, dirname, join, resolve } from 'path';
+import path from 'path';
 import webpack from 'webpack';
 import StaticI18nHtmlPlugin from '../index';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
-export default function processTemplates(...pluginOpts) {
+export default function runWebPackCompiler(...pluginOpts) {
   const compiler = webpack({
-    entry: join(__dirname, 'index.js'),
+    entry: path.join(__dirname, 'index.js'),
     output: {
-      path: __dirname,
+      path: path.join(__dirname, '/dist'),
       filename: 'bundle.js'
     },
     plugins: [
+      new CleanWebpackPlugin({
+        cleanOnceBeforeBuildPatterns: ['**/*', '!.gitkeep'],
+      }),
       new HtmlWebpackPlugin({
-        filename: 'html/index.html',
-        template: resolve(__dirname, 'templates/index.html'),
+        filename: 'index.html',
+        template: path.resolve(__dirname, 'templates/index.html'),
       }),
       new StaticI18nHtmlPlugin(...pluginOpts),
     ],
