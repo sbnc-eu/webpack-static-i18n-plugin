@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
 ## [1.0.1] - 2021-02-16
 ### Fixed
 - When the translated HTML files were moved into locale specific sub-folders, the asset paths were not updated to point to the correct location.
@@ -24,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The original plugin [webpack-static-i18n-html](https://github.com/Opetushallitus/webpack-static-i18n-html) this one is based on.
 
 
-[Unreleased]: https://github.com/BenceSzalai/webpack-static-i18n-plugin/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/BenceSzalai/webpack-static-i18n-plugin/compare/1.0.1...HEAD
+[1.0.0]: https://github.com/BenceSzalai/webpack-static-i18n-plugin/releases/tag/1.0.1
 [1.0.0]: https://github.com/BenceSzalai/webpack-static-i18n-plugin/releases/tag/1.0.0
 [0.1.0]: https://github.com/Opetushallitus/webpack-static-i18n-html/commit/9c66c9b57af1c742d1678c37674c6b12cd5453d2
