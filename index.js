@@ -8,6 +8,10 @@ const { RawSource } = require('webpack-sources');
 class StaticI18nHtmlPlugin {
   constructor(options) {
     this.options = options;
+
+    // In webpack memory the baseDir is the root. Ensure static-i18n thinks that too!
+    this.options.baseDir = '';
+    this.options.outputDir = '';
   }
 
   apply(compiler) {
@@ -19,6 +23,10 @@ class StaticI18nHtmlPlugin {
 
       for (let i in assetsToTranslate ) {
         let filename = assetsToTranslate[i];
+
+        // static-i18n needs this to determine the relative path for resources.
+        this.options.file = filename;
+
         let translatedSources = await staticI18n.process( compilation.assets[filename].source(), this.options );
 
         if ( this.options.suppressRaw ) {

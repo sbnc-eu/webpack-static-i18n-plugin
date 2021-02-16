@@ -6,9 +6,10 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 export default function runWebPackCompiler(...pluginOpts) {
   const compiler = webpack({
-    entry: path.join(__dirname, 'index.js'),
+    entry: path.resolve(__dirname, 'index.js'),
     output: {
-      path: path.join(__dirname, '/dist'),
+      // path should match `webpackOutputPath` in test/cases/apply-translations.test.js
+      path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.js'
     },
     plugins: [

@@ -43,9 +43,9 @@ The plugin accepts almost all the same options as [node-static-i18n](https://git
 
 On top of the [node-static-i18n options](https://github.com/claudetech/node-static-i18n#configuration) the plugin provides few more settings:
 
-* `outputPrefix` (string, default: ''): May be useful when the html files are not on the same level as the webpack `output.path`. Because the plugin prefixes the file paths with the locale code `path/to/file.html` would become `en/path/to/file.html`, `it/path/to/file.html` etc. However, if the hosting environment expects the files to be in `path/to` folder this is not okay. In that case setting `outputPrefix`: `path/to/` will adjust the output files to be: `path/to/en/file.html`, `path/to/it/file.html` etc.
+* `outputPrefix` (string, default: `''`): May be useful when the html files are not on the same level as the webpack `output.path`. Because the plugin prefixes the file paths with the locale code `path/to/file.html` would become `en/path/to/file.html`, `it/path/to/file.html` etc. However, if the hosting environment expects the files to be in `path/to` folder this is not okay. In that case setting `outputPrefix` to `path/to/` will adjust the output files to be: `path/to/en/file.html`, `path/to/it/file.html` etc.
   
-* `suppressRaw` (bool, default: false): If set to true, the raw, untranslated files are not written into the output folder. This hs no effect if `outputDefault` is left on default, because in that case the default locale version will replace the untranslated files anyway. But if for example all language variants are written to a locale prefixed folder (i.e. `outputDefault: '__lng__/__file__'`), it is recommended to set `suppressRaw: true` to avoid the untranslated files in the output folder.
+* `suppressRaw` (bool, default: `false`): If set to true, the raw, untranslated files are not written into the output folder. This has no effect if `outputDefault` is left on default, because in that case the default locale version will replace the untranslated files anyway. But if for example all language variants are written to a locale prefixed folder (i.e. `outputDefault: '__lng__/__file__'`), it is recommended to set `suppressRaw: true` to avoid the untranslated files in the output folder.
 
 
 ### Sample `webpack.config.js`:
@@ -88,12 +88,15 @@ module.exports = {
 If you have a lot of HTML files adding them manually as `HtmlWebpackPlugin` instances into `webpack.config.js` can be tedious. A nice solution is available in [Static Site Boilerplate](https://github.com/ericalli/static-site-boilerplate) (MIT license). Based on their code one could write something like this:
 
 ```js
-const generateHTMLPlugins = () => glob.sync(path.join(__dirname,'/**/*.html')).map((filepath) => {
-  return new HtmlWebpackPlugin({
-    filename: path.relative(__dirname, filepath),
-    template: filepath,
-  });
-});
+const generateHTMLPlugins = () => glob
+  .sync(path.join(__dirname, '/**/*.html'))
+  .map((filepath) => {
+      return new HtmlWebpackPlugin({
+        filename: path.relative(__dirname, filepath),
+        template: filepath,
+      });
+    }
+  );
 
 module.exports = {
   //...
