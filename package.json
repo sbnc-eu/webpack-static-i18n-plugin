@@ -1,6 +1,6 @@
 {
   "name": "webpack-static-i18n-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A webpack plugin implementing node-static-i18n for generating internationalized HTML files.",
   "main": "index.js",
   "repository": {
